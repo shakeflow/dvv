@@ -1,0 +1,34 @@
+:py:mod:`dvv.tests.test_algorithm.test_mwcs`
+============================================
+
+.. py:module:: dvv.tests.test_algorithm.test_mwcs
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   dvv.tests.test_algorithm.test_mwcs.func
+   dvv.tests.test_algorithm.test_mwcs.test_answer
+   dvv.tests.test_algorithm.test_mwcs.test_load_raw
+   dvv.tests.test_algorithm.test_mwcs.test_tt
+
+
+
+.. py:function:: func(x)
+
+
+.. py:function:: test_answer()
+
+
+.. py:function:: test_load_raw()
+
+
+.. py:function:: test_tt()
+
+

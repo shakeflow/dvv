@@ -1,0 +1,15 @@
+:py:mod:`dvv.tests.test_algorithm`
+==================================
+
+.. py:module:: dvv.tests.test_algorithm
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   test_mwcs/index.rst
+
+

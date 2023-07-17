@@ -1,0 +1,17 @@
+:py:mod:`dvv.tests`
+===================
+
+.. py:module:: dvv.tests
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   test_algorithm/index.rst
+   test_coda_kernel/index.rst
+   test_surf_kernel/index.rst
+
+

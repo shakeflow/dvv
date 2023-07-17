@@ -1,0 +1,9 @@
+coverage:
+  status:
+    project: off
+    patch: off
+
+ignore:
+  - "dvv/tests/*"
+
+comment: true

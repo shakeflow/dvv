@@ -5,6 +5,7 @@ description = "Seismic dv/v analysis"
 authors = ["OUCyf <oucyinfu@gmail.com>"]
 license = "Apache-2.0"
 readme = "README.md"
+include = ["pyproject.toml", "dvv/**/*.py"]
 classifiers = [
         "Development Status :: 2 - Pre-Alpha",
         "Environment :: Console",

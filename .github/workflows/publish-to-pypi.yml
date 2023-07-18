@@ -5,27 +5,7 @@ on:
 
 jobs:
   pypi:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ['3.9', '3.10', '3.11']
-        include:
-          - os: ubuntu-latest
-            cc: gcc
-            cxx: g++
-            label: linux-64
-          - os: macos-latest
-            cc: clang
-            cxx: clang++
-            label: osx-64
-          - os: windows-latest
-            cc: cl
-            cxx: cl
-            label: win-64
-
-    name: ${{ matrix.label }}-Python-${{ matrix.python-version }}
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     defaults:
       run:
@@ -41,7 +21,7 @@ jobs:
         id: setup-python
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: '3.10'
 
       #----------------------------------------------
       #       install & configure poetry
@@ -57,7 +37,7 @@ jobs:
       #----------------------------------------------
       #       load cached venv if cache exists
       #----------------------------------------------
-      - name: Cache Poetry Env
+      - name: Cache Poetry env
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:
@@ -69,21 +49,13 @@ jobs:
       #----------------------------------------------
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction
+        run: poetry install --no-interaction --no-root
 
       #----------------------------------------------
       #              build and publish
       #----------------------------------------------
       - name: Build and publish
         run: |
-          if [[ "${{ matrix.os }}" == "ubuntu-latest" && "${{ matrix.python-version }}" == "3.11" ]]; then
-            poetry build
-          elif [[ "${{ matrix.os }}" == "ubuntu-latest" && "${{ matrix.python-version }}" != "3.11" ]]; then
-            poetry build -f wheel
-          elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
-            poetry build -f wheel
-          elif [[ "${{ matrix.os }}" == "windows-latest" ]]; then
-            poetry build -f wheel
-          fi
+          poetry build
           poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN_SHAKEFLOW }}
           poetry publish

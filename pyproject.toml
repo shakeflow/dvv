@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dvv"
-version = "0.0.1"
+version = "0.0.3"
 description = "Seismic dv/v analysis"
 authors = ["OUCyf <oucyinfu@gmail.com>"]
 license = "Apache-2.0"
